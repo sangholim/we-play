@@ -49,7 +49,7 @@ subprojects {
 		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 		implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 		implementation("org.jetbrains.kotlin:kotlin-reflect")
-		runtimeOnly("com.h2database:h2")
+		runtimeOnly("com.mysql:mysql-connector-j")
 		testImplementation("org.springframework.boot:spring-boot-starter-test")
 	}
 
@@ -65,5 +65,7 @@ project(":admin-api") {
 }
 
 project(":data-access") {
-
+	dependencies{
+		testRuntimeOnly("com.h2database:h2")
+	}
 }
