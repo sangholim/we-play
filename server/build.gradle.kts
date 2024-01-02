@@ -51,6 +51,11 @@ subprojects {
 		implementation("org.jetbrains.kotlin:kotlin-reflect")
 		runtimeOnly("com.mysql:mysql-connector-j")
 		testImplementation("org.springframework.boot:spring-boot-starter-test")
+		testImplementation("io.kotest:kotest-runner-junit5:5.6.2")
+		testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.3")
+		testImplementation("io.kotest.extensions:kotest-extensions-testcontainers:2.0.2")
+		testImplementation("org.testcontainers:testcontainers:1.18.3")
+		testImplementation("org.testcontainers:mysql:1.18.3")
 	}
 
 	tasks.withType<Test> {
