@@ -6,13 +6,21 @@ plugins {
 	kotlin("jvm") version "1.9.21"
 	kotlin("plugin.spring") version "1.9.21"
 	kotlin("plugin.jpa") version "1.9.21"
+	kotlin("plugin.allopen") version "1.8.0"
 }
 
 java {
 	sourceCompatibility = JavaVersion.VERSION_17
 }
 
+allOpen {
+	annotation("jakarta.persistence.Entity")
+	annotation("jakarta.persistence.Embeddable")
+	annotation("jakarta.persistence.MappedSuperclass")
+}
+
 allprojects {
+
 	group = "com.weplay"
 	version = "0.0.1-SNAPSHOT"
 
@@ -38,6 +46,7 @@ subprojects {
 	apply(plugin = "kotlin")
 	apply(plugin = "kotlin-spring")
 	apply(plugin = "kotlin-jpa")
+	apply(plugin = "kotlin-allopen")
 
 	dependencyManagement {
 		imports {
@@ -47,6 +56,7 @@ subprojects {
 	dependencies {
 		implementation("org.springframework.boot:spring-boot-starter-web")
 		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+		implementation("org.springframework.boot:spring-boot-starter-security")
 		implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 		implementation("org.jetbrains.kotlin:kotlin-reflect")
 		runtimeOnly("com.mysql:mysql-connector-j")
