@@ -1,10 +1,12 @@
 package com.weplay.dataaccess.entity
 
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
-import java.time.LocalDateTime
+import jakarta.persistence.*
+import org.springframework.data.annotation.CreatedBy
+import org.springframework.data.annotation.CreatedDate
+import org.springframework.data.annotation.LastModifiedBy
+import org.springframework.data.annotation.LastModifiedDate
+import org.springframework.data.jpa.domain.support.AuditingEntityListener
+import java.time.Instant
 
 /**
  * 계정 엔티티
@@ -21,6 +23,7 @@ import java.time.LocalDateTime
  * @property modifiedBy     수정자
  */
 @Entity
+@EntityListeners(AuditingEntityListener::class)
 class Account(
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long?,
@@ -29,8 +32,18 @@ class Account(
     val email: String,
     val phoneNumber: String,
     val password: String,
-    val createdAt: LocalDateTime,
-    val createdBy: String,
-    val modifiedAt: LocalDateTime,
-    val modifiedBy: String
-)
+) {
+    @CreatedDate
+    @Column(name = "created_at")
+    var createdAt: Instant? = null
+
+    @CreatedBy
+    @Column(updatable = false)
+    var createdBy: String? = null
+
+    @LastModifiedDate
+    var modifiedAt: Instant? = null
+
+    @LastModifiedBy
+    var modifiedBy: String? = null
+}

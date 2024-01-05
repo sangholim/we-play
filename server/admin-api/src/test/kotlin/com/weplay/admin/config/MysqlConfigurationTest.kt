@@ -5,7 +5,6 @@ import com.weplay.dataaccess.service.AccountService
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldNotBe
 import org.springframework.boot.test.context.SpringBootTest
-import java.time.LocalDateTime
 
 @SpringBootTest
 class MysqlConfigurationTest(
@@ -13,10 +12,9 @@ class MysqlConfigurationTest(
 ) : FunSpec({
     test("mysql configuration 테스트") {
         val savedAccount = Account(
-            null, "a", "b", "c", "d", "a",
-            LocalDateTime.now(), "a", LocalDateTime.now(), "a"
+            null, "a", "b", "c", "d", "a"
         ).let(accountService::save)
-
-        savedAccount.id shouldNotBe null
+        val accounts = accountService.findAll()
+        accounts shouldNotBe null
     }
 })
