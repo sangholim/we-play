@@ -18,7 +18,7 @@ function LoginPage() {
     <div class="box-container">
       <form onSubmit={handleSubmit}>
         <div class="logo">
-          <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="대체 텍스트" />
+          <img src='/img/logo.png' alt="대체 텍스트" />
         </div>
         <div class="login-cell">
           <input type="text" placeholder="아이디" value={username} onChange={(e) => setUsername(e.target.value)} />
