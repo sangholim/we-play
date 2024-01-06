@@ -1,5 +1,6 @@
 package com.weplay.dataaccess.entity
 
+import com.weplay.dataaccess.enum.AccountStatusType
 import jakarta.persistence.*
 import org.springframework.data.annotation.CreatedBy
 import org.springframework.data.annotation.CreatedDate
@@ -28,13 +29,13 @@ class Account(
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long?,
     val uid: String,
+    val status: AccountStatusType,
     val name: String,
     val email: String,
     val phoneNumber: String,
     val password: String,
 ) {
     @CreatedDate
-    @Column(name = "created_at")
     var createdAt: Instant? = null
 
     @CreatedBy
