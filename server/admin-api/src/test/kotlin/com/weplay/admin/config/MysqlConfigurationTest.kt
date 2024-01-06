@@ -11,7 +11,7 @@ class MysqlConfigurationTest(
     private val accountService: AccountService
 ) : FunSpec({
     test("mysql configuration 테스트") {
-        val savedAccount = Account(
+        Account(
             null, "a", "b", "c", "d", "a"
         ).let(accountService::save)
         val accounts = accountService.findAll()

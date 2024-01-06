@@ -1,14 +1,14 @@
 package com.weplay.admin.config
 
-import com.weplay.dataaccess.config.JpaConfiguration
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
-import org.springframework.data.domain.AuditorAware
-import java.util.*
+import java.util.function.Supplier
 
 @Configuration
 @ComponentScan(value = ["com.weplay.dataaccess"])
-class DataAccessConfiguration: JpaConfiguration() {
+class DataAccessConfiguration {
 
-    override fun auditorProvider() = AuditorAware { Optional.of("admin-api auditor") }
+    @Bean
+    fun auditorProviderImpl() = Supplier { "admin-api-test" }
 }
