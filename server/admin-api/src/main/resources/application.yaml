@@ -4,7 +4,11 @@ server:
 
 spring:
   datasource:
-    url: jdbc:h2:mem:mydb
-    username: sa
-    password: password
-    driverClassName: org.h2.Driver
+    url: jdbc:mysql://127.0.0.1:3306/we_play
+    username: root
+    password: 1234
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true

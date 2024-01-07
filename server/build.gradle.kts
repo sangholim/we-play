@@ -6,13 +6,21 @@ plugins {
 	kotlin("jvm") version "1.9.21"
 	kotlin("plugin.spring") version "1.9.21"
 	kotlin("plugin.jpa") version "1.9.21"
+	kotlin("plugin.allopen") version "1.8.0"
 }
 
 java {
 	sourceCompatibility = JavaVersion.VERSION_17
 }
 
+allOpen {
+	annotation("jakarta.persistence.Entity")
+	annotation("jakarta.persistence.Embeddable")
+	annotation("jakarta.persistence.MappedSuperclass")
+}
+
 allprojects {
+
 	group = "com.weplay"
 	version = "0.0.1-SNAPSHOT"
 
@@ -38,6 +46,7 @@ subprojects {
 	apply(plugin = "kotlin")
 	apply(plugin = "kotlin-spring")
 	apply(plugin = "kotlin-jpa")
+	apply(plugin = "kotlin-allopen")
 
 	dependencyManagement {
 		imports {
@@ -47,10 +56,16 @@ subprojects {
 	dependencies {
 		implementation("org.springframework.boot:spring-boot-starter-web")
 		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+		implementation("org.springframework.boot:spring-boot-starter-security")
 		implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 		implementation("org.jetbrains.kotlin:kotlin-reflect")
-		runtimeOnly("com.h2database:h2")
+		runtimeOnly("com.mysql:mysql-connector-j")
 		testImplementation("org.springframework.boot:spring-boot-starter-test")
+		testImplementation("io.kotest:kotest-runner-junit5:5.6.2")
+		testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.3")
+		testImplementation("io.kotest.extensions:kotest-extensions-testcontainers:2.0.2")
+		testImplementation("org.testcontainers:testcontainers:1.18.3")
+		testImplementation("org.testcontainers:mysql:1.18.3")
 	}
 
 	tasks.withType<Test> {
@@ -65,5 +80,7 @@ project(":admin-api") {
 }
 
 project(":data-access") {
-
+	dependencies{
+		testRuntimeOnly("com.h2database:h2")
+	}
 }

@@ -18,4 +18,6 @@ class AccountService(
      * @return [Account]
      */
     fun save(account: Account): Account = accountRepository.save(account)
+
+    fun findAll() : MutableIterable<Account> = accountRepository.findAll()
 }
