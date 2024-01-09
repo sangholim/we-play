@@ -1,0 +1,26 @@
+@import '../../styles/Mixins.scss';
+
+.header {
+    @include flex-center;
+    background-color: palegoldenrod;
+}
+
+.login-info {
+    @include flex-end;
+    gap: 30px;
+    flex: 0.6;
+}
+
+.logo {
+    @include flex-start;
+    flex: 0.4;
+}
+
+img {
+    width: 20%;
+    height: 20%;
+}
+
+button {
+    @include common-color;
+}
