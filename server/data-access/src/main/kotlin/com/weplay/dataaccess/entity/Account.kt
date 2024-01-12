@@ -27,7 +27,7 @@ import java.time.Instant
 @EntityListeners(AuditingEntityListener::class)
 class Account(
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    val id: Long?,
+    val id: Int?,
     val uid: String,
     val status: AccountStatusType,
     val name: String,
