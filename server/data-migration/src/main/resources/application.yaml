@@ -1,0 +1,10 @@
+spring:
+  main:
+    web-application-type: none
+  liquibase:
+    change-log: classpath:/we-play/changelog/20240112_root_changelog.yaml
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/we_play
+    username: root
+    password: 1234
+    driverClassName: com.mysql.cj.jdbc.Driver

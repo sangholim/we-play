@@ -1,0 +1,63 @@
+databaseChangeLog:
+  - changeSet:
+     id: 1
+     author: sangholim
+     changes:
+       -  createTable:
+           tableName: account
+           columns:
+             -  column:
+                  name: id
+                  type: int
+                  autoIncrement:  true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+             -  column:
+                  name: uid
+                  type: varchar(40)
+                  constraints:
+                    nullable: false
+             -  column:
+                  name: status
+                  type: varchar(40)
+                  constraints:
+                    nullable: false
+             -  column:
+                  name: name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+             -  column:
+                  name: email
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+             -  column:
+                  name: phone_number
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+             -  column:
+                  name: password
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+             -  column:
+                  name: created_at
+                  type: DATETIME
+                  constraints:
+                    nullable: false
+             -  column:
+                  name: created_by
+                  type: varchar(40)
+                  constraints:
+                    nullable: false
+             -  column:
+                  name: modified_at
+                  type: DATETIME
+                  constraints:
+                    nullable: false
+             -  column:
+                  name: modified_by
+                  type: varchar(40)
