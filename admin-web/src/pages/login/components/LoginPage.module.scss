@@ -1,6 +1,6 @@
-@import '../../styles/Mixins.scss';
+@import '../../../styles/Mixins.scss';
 
-.box-container {
+.boxContainer {
     @include flex-center; 
     height: 100vh;
 
@@ -15,7 +15,7 @@
         }
     }
 
-    .login-cell {
+    .loginCell {
         input {
             width: 300px;
             padding: 5px;
@@ -30,7 +30,7 @@
         }
     }
 
-    .login-btn-cell {
+    .loginBtnCell {
         width: 100%;
         height: 40px;
 
@@ -41,13 +41,13 @@
         }
     }
 
-    .checkbox-cell {
+    .checkboxCell {
         input {
             margin: 0 0 20px;
         }
     }
 
-    .add-ons {
+    .addOns {
         .menu {
             @include flex-center;
             list-style: none;

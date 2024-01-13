@@ -1,10 +1,11 @@
 import React from 'react';
+import SidebarPage from '../../sidebar/components/SidebarPage';
 
 function HomePage() {
   return (
     
     <div>
-      <h2>Welcome to the Home Page!</h2>
+      <SidebarPage/>
     </div>
    
 

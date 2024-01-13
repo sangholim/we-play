@@ -19,3 +19,8 @@
     color: white;
     background-color: #0372c7;
 }
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}

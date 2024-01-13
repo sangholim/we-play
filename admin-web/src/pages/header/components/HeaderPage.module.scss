@@ -1,11 +1,11 @@
-@import '../../styles/Mixins.scss';
+@import '../../../styles/Mixins.scss';
 
 .header {
     @include flex-center;
     background-color: palegoldenrod;
 }
 
-.login-info {
+.loginInfo {
     @include flex-end;
     gap: 30px;
     flex: 0.6;

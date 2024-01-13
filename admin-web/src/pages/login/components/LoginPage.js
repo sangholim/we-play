@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './LoginPage.scss';
+import styles from './LoginPage.module.scss';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -15,25 +15,25 @@ function LoginPage() {
   };
 
   return (
-    <div class="box-container">
+    <div class={styles.boxContainer}>
       <form onSubmit={handleSubmit}>
-        <div class="logo">
+        <div class={styles.logo}>
           <img src='/img/logo.png' alt="대체 텍스트" />
         </div>
-        <div class="login-cell">
+        <div class={styles.loginCell}>
           <input type="text" placeholder="아이디" value={username} onChange={(e) => setUsername(e.target.value)} />
         </div>
-        <div class="login-cell">
+        <div class={styles.loginCell}>
           <input type="password" placeholder="비밀번호" value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <div class="checkbox-cell">
+        <div class={styles.checkboxCell}>
           <input type="checkbox"></input><label>로그인 상태 유지</label>
         </div>
-        <div class="login-btn-cell">
+        <div class={styles.loginBtnCell}>
           <button>Login</button>
         </div>
-        <div class="add-ons">
-          <ul class="menu">
+        <div class={styles.addOns}>
+          <ul class={styles.menu}>
             <li>비밀번호 찾기</li>
             <li>아이디 찾기</li>
             <li>회원가입</li>

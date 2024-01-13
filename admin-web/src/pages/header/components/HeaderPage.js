@@ -1,16 +1,16 @@
 import React from 'react';
-import './HeaderPage.scss';
+import styles from './HeaderPage.module.scss';
 
 function HeaderPage() {
   return (
     
-    <div class="header">
-        <div className='logo'>
+    <div class={styles.header}>
+        <div className={styles.logo}>
           <img src='/img/logo.png' alt="대체 텍스트" />
         </div>
-        <div class="login-info">
-          <div class="user-name">seungheon lee</div>
-          <button class="logout-button">Logout</button>
+        <div class={styles.loginInfo}>
+          <div class={styles.userName}>seungheon lee</div>
+          <button class={styles.logoutButton}>Logout</button>
         </div>
     </div>
 

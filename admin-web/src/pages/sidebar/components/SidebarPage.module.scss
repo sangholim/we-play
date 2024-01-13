@@ -1,0 +1,49 @@
+@import '../../../styles/Mixins.scss';
+
+.sidebar {
+    position: fixed; /* 고정 위치 */
+    width: 15%;
+    height: 100%; /* 전체 높이 */
+    overflow: auto; /* 내용이 많을 경우 스크롤바 생성 */
+    background-color: #333;
+    color: white
+} 
+
+.sidebar a {
+    display: block; /* 링크를 블록 요소로 만듦 */
+    font-weight: bold;
+    color: white;
+    padding: 16px;
+    text-decoration: none; // 줄 제거
+}
+
+.sidebar .tab:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+img {
+    width: 100%;
+}
+
+.logo {
+    margin-bottom: 10px;
+}
+
+.dropDownBtn {
+    @include flex-column;
+    align-items: center;
+}
+
+.dropDownContainer {
+    display: none;
+    padding-left: 20px;
+}
+
+.active {
+    display: block;
+}
+
+.dropDownBtn a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
