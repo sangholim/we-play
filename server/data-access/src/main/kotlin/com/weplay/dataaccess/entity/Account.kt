@@ -29,6 +29,8 @@ class Account(
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Int?,
     val uid: String,
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "varchar")
     val status: AccountStatusType,
     val name: String,
     val email: String,
