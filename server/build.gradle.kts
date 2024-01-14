@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	id("org.springframework.boot") version "3.2.1"
 	id("io.spring.dependency-management") version "1.1.4"
+	id("com.avast.gradle.docker-compose") version "0.17.6"
 	kotlin("jvm") version "1.9.21"
 	kotlin("plugin.spring") version "1.9.21"
 	kotlin("plugin.jpa") version "1.9.21"
@@ -42,11 +43,17 @@ subprojects {
 	apply(plugin = "org.springframework.boot")
 	apply(plugin = "io.spring.dependency-management")
 	apply(plugin = "org.jetbrains.kotlin.plugin.spring")
+	apply(plugin = "docker-compose")
 
 	apply(plugin = "kotlin")
 	apply(plugin = "kotlin-spring")
 	apply(plugin = "kotlin-jpa")
 	apply(plugin = "kotlin-allopen")
+
+	dockerCompose {
+		useComposeFiles.add("../deploy/local/docker-compose.yaml")
+		isRequiredBy(tasks.bootRun)
+	}
 
 	dependencyManagement {
 		imports {
@@ -82,5 +89,12 @@ project(":admin-api") {
 project(":data-access") {
 	dependencies{
 		testRuntimeOnly("com.h2database:h2")
+	}
+}
+
+project(":data-migration") {
+	dependencies {
+		implementation(project(":data-access"))
+		implementation("org.liquibase:liquibase-core")
 	}
 }

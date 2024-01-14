@@ -5,5 +5,5 @@ package com.weplay.dataaccess.enum
  *
  */
 enum class AccountStatusType {
-    ACIVE
+    ACTIVE
 }

@@ -1,3 +1,3 @@
 rootProject.name = "we-play-server-modules"
 
-include("data-access", "admin-api")
+include("data-access", "admin-api", "data-migration")

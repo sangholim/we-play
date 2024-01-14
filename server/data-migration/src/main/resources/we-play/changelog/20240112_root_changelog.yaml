@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: classpath:/we-play/changelog/2024-01/20240112_1_changelog.yaml

@@ -1,3 +1,4 @@
 /.idea/
 /server/.gradle/
 /server/build/resolvedMainClassName
+/server/deploy/local/.mysql-data/db/
