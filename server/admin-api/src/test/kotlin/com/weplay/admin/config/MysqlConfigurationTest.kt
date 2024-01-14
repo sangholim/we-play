@@ -13,7 +13,7 @@ class MysqlConfigurationTest(
 ) : FunSpec({
     test("mysql configuration 테스트") {
         Account(
-            null, "a", AccountStatusType.ACIVE, "b", "c", "d", "a"
+            null, "a", AccountStatusType.ACTIVE, "b", "c", "d", "a"
         ).let(accountService::save)
         val accounts = accountService.findAll()
         accounts shouldNotBe null
