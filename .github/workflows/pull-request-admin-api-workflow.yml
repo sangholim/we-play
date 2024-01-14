@@ -20,4 +20,4 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
       - name: Admin Api Run Test with Gradle Wrapper
-        run: ./server/gradlew :admin-api:test
+        run: ./server/gradlew -p ./server :admin-api:test

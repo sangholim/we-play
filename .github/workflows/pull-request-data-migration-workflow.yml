@@ -20,4 +20,4 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
       - name: Data Migration Run Test with Gradle Wrapper
-        run: ./server/gradlew :data-migration:test
+        run: ./server/gradlew -p ./server :data-migration:test
