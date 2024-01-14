@@ -83,6 +83,7 @@ subprojects {
 project(":admin-api") {
 	dependencies {
 		implementation(project(":data-access"))
+		testImplementation(project(":data-migration"))
 	}
 }
 
