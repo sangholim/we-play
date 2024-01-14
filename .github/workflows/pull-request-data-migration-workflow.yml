@@ -1,0 +1,23 @@
+name: data-migration pull request workflow
+
+on:
+  pull_request:
+    paths:
+      - server/data-access/**
+      - server/data-migration/**
+    branches:
+      - develop
+      
+jobs:
+  builds:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '17'
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+      - name: Data Migration Run Test with Gradle Wrapper
+        run: ./server/gradlew :data-migration:test
